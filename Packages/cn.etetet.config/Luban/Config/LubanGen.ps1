@@ -14,11 +14,8 @@ $GEN_CLIENT = "Packages/cn.etetet.yiuiluban/.Tools/Luban/Luban.dll"
 $SOURCE_GEN_CLIENT = "Packages/cn.etetet.yiuiluban/DontNet~/luban/src/Luban/bin/Debug/net10.0/Luban.dll"
 $CUSTOM = "Packages/cn.etetet.yiuiluban/.ToolsGen/Custom"
 
-# powershell判断是不是Mac平台
-$DotNet = "dotnet.exe"
-if ($null -ne $IsMacOS) {
-    $DotNet = "/usr/local/share/dotnet/dotnet"
-}
+$DotNet = if ($IsWindows) { "dotnet.exe" } else { "dotnet" }
+New-Item -ItemType Directory -Force -Path (Join-Path $PACKAGE "Luban/$CONFIG_NAME/Datas") | Out-Null
 
 if (!(Test-Path $GEN_CLIENT))
 {
@@ -60,14 +57,8 @@ function Invoke-NumericTypeEnumExport
     Write-Host "==================== numeric 完成 ===================="
 }
 
-# 客户端
-Invoke-ConfigExport -TargetName client -OutputCodeDir "$PACKAGE/CodeMode/Model/Client/$CONFIG_NAME/" -OutputDataDir "$PACKAGE/CodeMode/Config/Client/$CONFIG_NAME/"
-
 # 服务器
 Invoke-ConfigExport -TargetName server -OutputCodeDir "$PACKAGE/CodeMode/Model/Server/$CONFIG_NAME/" -OutputDataDir "$PACKAGE/CodeMode/Config/Server/$CONFIG_NAME/"
-
-# 所有
-Invoke-ConfigExport -TargetName all -OutputCodeDir "$PACKAGE/CodeMode/Model/ClientServer/$CONFIG_NAME/" -OutputDataDir "$PACKAGE/CodeMode/Config/ClientServer/$CONFIG_NAME/"
 
 # NumericType 只导出 enum 到 numeric 运行时代码目录
 Invoke-NumericTypeEnumExport

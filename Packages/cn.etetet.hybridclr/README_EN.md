@@ -11,19 +11,16 @@
 <br/>
 <br/>
 
-HybridCLR is a **feature-complete, zero-cost, high-performance, low-memory** **near-perfect** Unity cross-platform native C# hot update solution.
+HybridCLR is a feature-complete, zero-cost, high-performance, low-memory Unity cross-platform native C# hot update solution.
 
 HybridCLR extends the il2cpp runtime code, transforming it from a pure [AOT](https://en.wikipedia.org/wiki/Ahead-of-time_compilation) runtime to an AOT+Interpreter hybrid runtime, thereby natively supporting the dynamic loading of assemblies and fundamentally supporting hot updates from the bottom layer. Games using HybridCLR technology can not only run efficiently on the Android platform but also on all platforms supported by il2cpp, including iOS, Consoles, WebGL, etc.
 
 Thanks to HybridCLR's good support for the ECMA-335 specification and its high compatibility with the Unity development workflow, Unity projects can almost seamlessly gain the ability to hot update C# code after integrating HybridCLR. Developers do not need to change their daily development habits and requirements. HybridCLR is the first to achieve the engineering difficulty of a full-platform code hot update solution for the Unity platform to almost zero.
 
-Welcome to embrace modern native C# hot update technology!
-
 ## Documentation
 
 - [Official Documentation](https://www.hybridclr.cn/en/docs/intro)
 - [Quick Start](https://www.hybridclr.cn/en/docs/beginner/quickstart)
-- [Business Project Cases](https://www.hybridclr.cn/en/docs/other/businesscase)
 
 ## Features
 
@@ -58,30 +55,6 @@ More specifically, HybridCLR has done the following:
 - Implemented a compiler that converts IL instructions to a custom register instruction set.
 - Implemented an efficient register interpreter.
 - Provided a large number of instinct functions to enhance interpreter performance.
-
-## Stability Status
-
-HybridCLR has been widely verified as an efficient and stable Unity hot update solution, meeting the stability and performance requirements of medium and large commercial projects.
-
-Currently, thousands of commercial game projects have integrated HybridCLR, with over a thousand already launched on the App Store and Google Play. Nearly a hundred of the top 500 free iOS games use HybridCLR, including MMORPGs, heavy card games, and heavy tower defense games. Most of the **Top Game Companies** in China are already using HybridCLR.
-
-You can view the [list of known top companies using HybridCLR and their launched projects](https://www.hybridclr.cn/en/docs/other/businesscase).
-
-## Support and Contact
-
-- Official Group 1: 651188171 (Full)
-- Beginner Group 1: 428404198 (Full)
-- Beginner Group 2: 680274677 (Full)
-- Beginner Group 3: **920714552 (Recommended)**
-- Discord channel https://discord.gg/BATfNfJnm2
-- Business cooperation email: business#code-philosophy.com
-- [Commercial Support](https://www.hybridclr.cn/en/docs/business/intro)
-
-## About the Author
-
-**walon**: Founder of **Code Philosophy (代码哲学)**
-
-Graduated from the Department of Physics at Tsinghua University, gold medalist of the 2006 CMO, member of the National Mathematical Olympiad Training Team, and sent to the Basic Science Class of Tsinghua. Focused on game technology, proficient in development architecture and basic technical infrastructure.
 
 ## License
 

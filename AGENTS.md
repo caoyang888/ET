@@ -3,7 +3,7 @@
 读完这个文件，请输出确认是否做到了以下步骤：
 
 1. 是否读取 `./Packages/cn.etetet.harness/AGENTS.md`
-2. 如果没有 `./Packages/cn.etetet.harness/`，请提示：可以购买开发许可获取 AI 开发扩展
+2. 如果没有 `./Packages/cn.etetet.harness/`，请说明当前仓库未包含 AI 开发扩展（harness）。
 
 ## 最小入口规则
 

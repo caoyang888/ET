@@ -11,19 +11,16 @@
 
 [Github](https://github.com/focus-creative-games/hybridclr) | [Gitee](https://gitee.com/focus-creative-games/hybridclr)
 
-HybridCLR是一个**特性完整、零成本、高性能、低内存**的**近乎完美**的Unity全平台原生c#热更新解决方案。
+HybridCLR是一个特性完整、零成本、高性能、低内存的Unity全平台原生c#热更新解决方案。
 
 HybridCLR扩充了il2cpp运行时代码，使它由纯[AOT](https://en.wikipedia.org/wiki/Ahead-of-time_compilation) runtime变成AOT+Interpreter 混合runtime，进而原生支持动态加载assembly，从底层彻底支持了热更新。使用HybridCLR技术的游戏不仅能在Android平台，也能在IOS、Consoles、WebGL等所有il2cpp支持的平台上高效运行。
 
 由于HybridCLR对ECMA-335规范 的良好支持以及对Unity开发工作流的高度兼容，Unity项目在接入HybridCLR后，可以几乎无缝地获得C#代码热更新的能力，开发者不需要改变日常开发习惯和要求。HybridCLR首次实现了将Unity平台的全平台代码热更新方案的工程难度降到几乎为零的水平。
 
-欢迎拥抱现代原生C#热更新技术 ！！！
-
 ## 文档
 
 - [官方文档](https://www.hybridclr.cn/docs/intro)
 - [快速上手](https://www.hybridclr.cn/docs/beginner/quickstart)
-- [商业项目案例](https://www.hybridclr.cn/docs/other/businesscase)
 
 ## 特性
 
@@ -60,30 +57,6 @@ HybridCLR从mono的 [mixed mode execution](https://www.mono-project.com/news/201
 - 实现了一个IL指令集到自定义的寄存器指令集的compiler
 - 实现了一个高效的寄存器解释器
 - 额外提供大量的instinct函数，提升解释器性能
-
-## 稳定性状况
-
-HybridCLR已经被广泛验证是非常高效、稳定的Unity热更新解决方案，良好满足大中型商业项目的稳定和性能要求。
-
-目前已经有数千个商业游戏项目接入了HybridCLR，其中有超过千个已经在App Store和Google Player上线，仅仅iOS免费榜前500名中就有近百款使用了HybridCLR。上线的项目中包括MMORPG、重度卡牌、重度塔防之类的游戏。国内绝大多数**Top游戏公司**都已经在使用HybridCLR。
-
-可查看我们已知的头部公司中使用HybridCLR并且已经上线的[项目列表](https://www.hybridclr.cn/docs/other/businesscase)。
-
-## 支持与联系
-
-- 官方1群（3000人）：651188171（满）
-- 新手1群（3000人）：428404198（满）
-- 新手2群（2000人）：680274677（满）
-- 新手3群（2000人）：**920714552（推荐）**
-- discord频道 `https://discord.gg/BATfNfJnm2`
-- 商业合作邮箱: business#code-philosophy.com
-- [商业化支持](https://www.hybridclr.cn/docs/business/intro)
-
-## 关于作者
-
-**walon** ：**Code Philosophy（代码哲学）** 创始人
-
-毕业于清华大学物理系，2006年CMO金牌，奥数国家集训队成员，保送清华基科班。专注于游戏技术，擅长开发架构和基础技术设施。
 
 ## license
 

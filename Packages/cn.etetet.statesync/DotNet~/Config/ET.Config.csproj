@@ -14,7 +14,7 @@
     </PropertyGroup>
 
     <PropertyGroup>
-        <ETRootDir>$([MSBuild]::EnsureTrailingSlash($([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\..\..\..\' ))))</ETRootDir>
+        <ETRootDir>$(RepoRoot)</ETRootDir>
         <ETRootDirForPwsh>$(ETRootDir).</ETRootDirForPwsh>
         <MainPackageFile>$(ETRootDir)MainPackage.txt</MainPackageFile>
         <MainPackageDesignTimeProps>$(MSBuildProjectDirectory)/$(BaseIntermediateOutputPath)ET.Config.MainPackage.g.props</MainPackageDesignTimeProps>

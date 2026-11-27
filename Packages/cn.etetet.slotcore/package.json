@@ -1,0 +1,21 @@
+{
+  "name": "cn.etetet.slotcore",
+  "displayName": "ET.SlotCore",
+  "version": "4.0.0",
+  "description": "Slot authoritative math, wallet, rooms and ledgers",
+  "author": {
+    "name": "tanghai",
+    "url": "https://github.com/egametang/ET"
+  },
+  "dependencies": {
+    "cn.etetet.core": "4.0.0",
+    "cn.etetet.config": "4.0.0",
+    "cn.etetet.proto": "4.0.0",
+    "cn.etetet.actorlocation": "4.0.0",
+    "cn.etetet.db": "4.0.0",
+    "cn.etetet.startconfig": "4.0.0",
+    "cn.etetet.netinner": "4.0.0",
+    "cn.etetet.login": "4.0.0",
+    "cn.etetet.loader": "4.0.0"
+  }
+}

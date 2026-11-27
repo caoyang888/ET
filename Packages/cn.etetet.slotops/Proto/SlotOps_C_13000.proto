@@ -1,0 +1,229 @@
+syntax = "proto3";
+package ET;
+
+// ResponseType G2C_ClaimTask
+message C2G_ClaimTask // ISessionRequest
+{
+	int32 RpcId = 1;
+	int32 TaskId = 2;
+}
+
+message G2C_ClaimTask // ISessionResponse
+{
+	int32 RpcId = 1;
+	int32 Error = 2;
+	string Message = 3;
+	repeated SlotGrantProto Wallet = 4;
+}
+
+// ResponseType G2C_CreateOrder
+message C2G_CreateOrder // ISessionRequest
+{
+	int32 RpcId = 1;
+	int32 ProductId = 2;
+	string OrderId = 3;
+}
+
+message G2C_CreateOrder // ISessionResponse
+{
+	int32 RpcId = 1;
+	int32 Error = 2;
+	string Message = 3;
+	string OrderId = 4;
+}
+
+// ResponseType G2C_DevPay
+message C2G_DevPay // ISessionRequest
+{
+	int32 RpcId = 1;
+	string OrderId = 2;
+}
+
+message G2C_DevPay // ISessionResponse
+{
+	int32 RpcId = 1;
+	int32 Error = 2;
+	string Message = 3;
+	int32 VipLevel = 4;
+	repeated SlotGrantProto Wallet = 5;
+}
+
+// ResponseType G2C_ClaimJubao
+message C2G_ClaimJubao // ISessionRequest
+{
+	int32 RpcId = 1;
+}
+
+message G2C_ClaimJubao // ISessionResponse
+{
+	int32 RpcId = 1;
+	int32 Error = 2;
+	string Message = 3;
+	repeated SlotGrantProto Wallet = 4;
+}
+
+// ResponseType G2C_RollDice
+message C2G_RollDice // ISessionRequest
+{
+	int32 RpcId = 1;
+	int32 Steps = 2;
+	int32 Lucky = 3;
+}
+
+message G2C_RollDice // ISessionResponse
+{
+	int32 RpcId = 1;
+	int32 Error = 2;
+	string Message = 3;
+	int32 Cell = 4;
+	int32 Laps = 5;
+	repeated SlotGrantProto Wallet = 6;
+}
+
+// ResponseType G2C_ClaimLap
+message C2G_ClaimLap // ISessionRequest
+{
+	int32 RpcId = 1;
+	int32 Laps = 2;
+}
+
+message G2C_ClaimLap // ISessionResponse
+{
+	int32 RpcId = 1;
+	int32 Error = 2;
+	string Message = 3;
+	repeated SlotGrantProto Wallet = 4;
+}
+
+// ResponseType G2C_ClaimKing
+message C2G_ClaimKing // ISessionRequest
+{
+	int32 RpcId = 1;
+	int32 TierId = 2;
+}
+
+message G2C_ClaimKing // ISessionResponse
+{
+	int32 RpcId = 1;
+	int32 Error = 2;
+	string Message = 3;
+	repeated SlotGrantProto Wallet = 4;
+}
+
+// ResponseType G2C_ClaimMail
+message C2G_ClaimMail // ISessionRequest
+{
+	int32 RpcId = 1;
+	int64 MailId = 2;
+}
+
+message G2C_ClaimMail // ISessionResponse
+{
+	int32 RpcId = 1;
+	int32 Error = 2;
+	string Message = 3;
+	repeated SlotGrantProto Wallet = 4;
+}
+
+// ResponseType G2C_RedeemCode
+message C2G_RedeemCode // ISessionRequest
+{
+	int32 RpcId = 1;
+	string Code = 2;
+}
+
+message G2C_RedeemCode // ISessionResponse
+{
+	int32 RpcId = 1;
+	int32 Error = 2;
+	string Message = 3;
+	repeated SlotGrantProto Wallet = 4;
+}
+
+// ResponseType G2C_ClaimPiggy
+message C2G_ClaimPiggy // ISessionRequest
+{
+	int32 RpcId = 1;
+}
+
+message G2C_ClaimPiggy // ISessionResponse
+{
+	int32 RpcId = 1;
+	int32 Error = 2;
+	string Message = 3;
+	repeated SlotGrantProto Wallet = 4;
+}
+
+// ResponseType G2C_Bankruptcy
+message C2G_Bankruptcy // ISessionRequest
+{
+	int32 RpcId = 1;
+}
+
+message G2C_Bankruptcy // ISessionResponse
+{
+	int32 RpcId = 1;
+	int32 Error = 2;
+	string Message = 3;
+	repeated SlotGrantProto Wallet = 4;
+}
+
+// ResponseType G2C_SubmitIdentity
+message C2G_SubmitIdentity // ISessionRequest
+{
+	int32 RpcId = 1;
+	string Name = 2;
+	string Number = 3;
+}
+
+message G2C_SubmitIdentity // ISessionResponse
+{
+	int32 RpcId = 1;
+	int32 Error = 2;
+	string Message = 3;
+}
+
+// ResponseType G2C_BindPhone
+message C2G_BindPhone // ISessionRequest
+{
+	int32 RpcId = 1;
+	string Number = 2;
+	string Code = 3;
+}
+
+message G2C_BindPhone // ISessionResponse
+{
+	int32 RpcId = 1;
+	int32 Error = 2;
+	string Message = 3;
+}
+
+// ResponseType G2C_QueryRival
+message C2G_QueryRival // ISessionRequest
+{
+	int32 RpcId = 1;
+	int32 Period = 2;
+	int32 Place = 3;
+}
+
+message G2C_QueryRival // ISessionResponse
+{
+	int32 RpcId = 1;
+	int32 Error = 2;
+	string Message = 3;
+	int64 RivalDamage = 4;
+}
+
+// ResponseType G2C_SetMaintenance
+message C2G_SetMaintenance // ISessionRequest
+{
+	int32 RpcId = 1;
+	int32 Enabled = 2;
+}
+
+message G2C_SetMaintenance // ISessionResponse
+{
+	int32 RpcId = 1;
+	int32 Error = 2;
+	string Message = 3;
+}

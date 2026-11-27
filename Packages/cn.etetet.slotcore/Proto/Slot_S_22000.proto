@@ -1,0 +1,81 @@
+syntax = "proto3";
+package ET;
+
+// ResponseType Slot2G_Enter
+message G2Slot_Enter // IRequest
+{
+	int32 RpcId = 1;
+	int64 PlayerId = 2;
+}
+
+message Slot2G_Enter // IResponse
+{
+	int32 RpcId = 1;
+	int32 Error = 2;
+	string Message = 3;
+	repeated SlotGrantProto Wallet = 4;
+}
+
+// ResponseType Slot2G_Spin
+message G2Slot_Spin // ILocationRequest
+{
+	int32 RpcId = 1;
+	int64 PlayerId = 2;
+	int32 RoomId = 3;
+	int32 StakeId = 4;
+	int32 LineCount = 5;
+	string ClientSpinId = 6;
+	int64 Seed = 7;
+}
+
+message Slot2G_Spin // ILocationResponse
+{
+	int32 RpcId = 1;
+	int32 Error = 2;
+	string Message = 3;
+	int64 Payout = 4;
+	int64 Damage = 5;
+	int32 StageId = 6;
+	int64 BossHp = 7;
+	int32 FreeSpins = 8;
+	int64 Seed = 9;
+	repeated SlotStepProto Steps = 10;
+	repeated SlotGrantProto Wallet = 11;
+	repeated SlotGrantProto Grants = 12;
+}
+
+// ResponseType Slot2G_Maintenance
+message G2Slot_Maintenance // IRequest
+{
+	int32 RpcId = 1;
+	int32 Enabled = 2;
+}
+
+message Slot2G_Maintenance // IResponse
+{
+	int32 RpcId = 1;
+	int32 Error = 2;
+	string Message = 3;
+}
+
+// ResponseType Slot2G_Ops
+message G2Slot_Ops // ILocationRequest
+{
+	int32 RpcId = 1;
+	int32 Action = 2;
+	int32 Arg1 = 3;
+	int32 Arg2 = 4;
+	int64 Arg3 = 5;
+	string Text = 6;
+	string Text2 = 7;
+}
+
+message Slot2G_Ops // ILocationResponse
+{
+	int32 RpcId = 1;
+	int32 Error = 2;
+	string Message = 3;
+	int32 Value = 4;
+	int64 Amount = 5;
+	repeated SlotGrantProto Wallet = 6;
+}

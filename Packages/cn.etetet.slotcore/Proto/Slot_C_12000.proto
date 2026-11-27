@@ -1,0 +1,71 @@
+syntax = "proto3";
+package ET;
+
+message SlotGrantProto
+{
+	int32 ItemId = 1;
+	int64 Count = 2;
+}
+
+message SlotCellProto
+{
+	int32 Row = 1;
+	int32 Column = 2;
+	int32 SymbolId = 3;
+}
+
+message SlotWinProto
+{
+	int32 SymbolId = 1;
+	int32 Count = 2;
+	int64 Amount = 3;
+	repeated SlotCellProto Cells = 4;
+}
+
+message SlotStepProto
+{
+	int32 Index = 1;
+	repeated int32 Symbols = 2;
+	repeated SlotWinProto Wins = 3;
+}
+
+// ResponseType G2C_EnterSlot
+message C2G_EnterSlot // ISessionRequest
+{
+	int32 RpcId = 1;
+}
+
+message G2C_EnterSlot // ISessionResponse
+{
+	int32 RpcId = 1;
+	int32 Error = 2;
+	string Message = 3;
+	int64 PlayerId = 4;
+	repeated SlotGrantProto Wallet = 5;
+}
+
+// ResponseType G2C_Spin
+message C2G_Spin // ISessionRequest
+{
+	int32 RpcId = 1;
+	int32 RoomId = 2;
+	int32 StakeId = 3;
+	int32 LineCount = 4;
+	string ClientSpinId = 5;
+}
+
+message G2C_Spin // ISessionResponse
+{
+	int32 RpcId = 1;
+	int32 Error = 2;
+	string Message = 3;
+	int64 Payout = 4;
+	int64 Damage = 5;
+	int32 StageId = 6;
+	int64 BossHp = 7;
+	int32 FreeSpins = 8;
+	int64 Seed = 9;
+	repeated SlotStepProto Steps = 10;
+	repeated SlotGrantProto Wallet = 11;
+	repeated SlotGrantProto Grants = 12;
+}

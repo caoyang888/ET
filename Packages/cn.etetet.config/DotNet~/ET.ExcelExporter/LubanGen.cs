@@ -132,14 +132,8 @@ namespace ET
 
         private static int RunLubanGen(string configCollectionPath, string configType)
         {
-            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
-            {
-                return RunProcess("pwsh.exe", $"-ExecutionPolicy Bypass -File {Path.Combine(configCollectionPath, "LubanGen.ps1")} -ConfigType {configType}");
-            }
-            else
-            {
-                return RunProcess("/usr/local/bin/pwsh", $"-ExecutionPolicy Bypass -File {Path.Combine(configCollectionPath, "LubanGen.ps1")} -ConfigType {configType}");
-            }
+            string pwsh = RuntimeInformation.IsOSPlatform(OSPlatform.Windows) ? "pwsh.exe" : "pwsh";
+            return RunProcess(pwsh, $"-ExecutionPolicy Bypass -File {Path.Combine(configCollectionPath, "LubanGen.ps1")} -ConfigType {configType}");
         }
 
         public static void ChangePermissions(string filePath, string permissions)

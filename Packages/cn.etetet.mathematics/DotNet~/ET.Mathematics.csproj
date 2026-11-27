@@ -13,23 +13,24 @@
     <PropertyGroup>
         <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
         <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+        <ETRootDir>$(RepoRoot)</ETRootDir>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
-        <DefineConstants>DOTNET;UNITY_DOTSPLAYER</DefineConstants>
-        <OutputPath>$(SolutionDir)Bin</OutputPath>
+        <DefineConstants>DOTNET</DefineConstants>
+        <OutputPath>$(ETRootDir)Bin</OutputPath>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
         <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
         <Optimize>false</Optimize>
-        <NoWarn>0169,0649,3021,8981,NU1903</NoWarn>
+        <NoWarn>NU1903;NU1902</NoWarn>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
-        <DefineConstants>DOTNET;UNITY_DOTSPLAYER</DefineConstants>
-        <OutputPath>$(SolutionDir)Bin</OutputPath>
+        <DefineConstants>DOTNET</DefineConstants>
+        <OutputPath>$(ETRootDir)Bin</OutputPath>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
         <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-        <NoWarn>0169,0649,3021,8981,NU1903</NoWarn>
+        <NoWarn>NU1903;NU1902</NoWarn>
         <Optimize>true</Optimize>
         <DebugType>full</DebugType>
         <DebugSymbols>true</DebugSymbols>
@@ -37,8 +38,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Compile Include="..\..\..\Library\PackageCache\com.unity.mathematics*\Unity.Mathematics\**\*.cs">
-            <Link>Unity.Mathematics/$([System.String]::new(%(RecursiveDir)).Substring($([System.String]::new(%(RecursiveDir)).Indexof("Unity.Mathematics"))).Replace("Unity.Mathematics", ""))/%(FileName)%(Extension)</Link>
-        </Compile>
+        <PackageReference Include="UnityMathematics.NoDeps" Version="1.3.2" />
     </ItemGroup>
 </Project>

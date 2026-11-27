@@ -12,7 +12,7 @@
         <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
     </PropertyGroup>
     <PropertyGroup>
-        <ETRootDir>$([MSBuild]::EnsureTrailingSlash($([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\..\..\..\' ))))</ETRootDir>
+        <ETRootDir>$(RepoRoot)</ETRootDir>
         <ETRootDirForPwsh>$(ETRootDir).</ETRootDirForPwsh>
         <MainPackageFile>$(ETRootDir)MainPackage.txt</MainPackageFile>
         <MainPackageDesignTimeProps>$(MSBuildProjectDirectory)/$(BaseIntermediateOutputPath)ET.Model.MainPackage.g.props</MainPackageDesignTimeProps>
@@ -94,12 +94,6 @@
     <ItemGroup>
         <CompilerVisibleProperty Include="DotNetAssembly" />
     </ItemGroup>
-
-	<ItemGroup>
-	<Reference Include="Sirenix.OdinInspector.Attributes">
-	<HintPath>..\..\..\..\Assets\Plugins\Sirenix\Assemblies\Sirenix.OdinInspector.Attributes.dll</HintPath>
-	</Reference>
-	</ItemGroup>
 
 	<ItemGroup>
 	  <Folder Include="..\..\..\cn.etetet.transfer\Scripts\Model\Server\">

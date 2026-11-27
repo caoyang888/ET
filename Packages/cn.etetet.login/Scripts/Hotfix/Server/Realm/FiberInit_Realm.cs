@@ -22,6 +22,11 @@ namespace ET.Server
             IPEndPoint innerIPOuterPort = new Address(addressSingleton.InnerIP, outerPort);
             
             NetComponent netComponent = root.AddComponent<NetComponent, IKcpTransport>(new UdpTransport(innerIPOuterPort));
+            WebSocketServerConfig webSocketConfig = WebSocketServerConfig.Load();
+            if (webSocketConfig.Enable)
+            {
+                root.AddComponent<WebSocketOuterComponent, IPEndPoint>(webSocketConfig.Shift(innerIPOuterPort));
+            }
             
             // 注册服务发现
             ServiceDiscoveryProxy serviceDiscoveryProxy = root.AddComponent<ServiceDiscoveryProxy>();

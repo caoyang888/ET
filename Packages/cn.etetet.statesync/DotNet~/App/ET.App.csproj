@@ -13,18 +13,19 @@
   <PropertyGroup>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+    <ETRootDir>$(RepoRoot)</ETRootDir>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DefineConstants>DOTNET</DefineConstants>
-    <OutputPath>$(SolutionDir)Bin</OutputPath>
+    <OutputPath>$(ETRootDir)Bin</OutputPath>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <Optimize>false</Optimize>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <DefineConstants>DOTNET</DefineConstants>
-    <OutputPath>$(SolutionDir)Bin</OutputPath>
+    <OutputPath>$(ETRootDir)Bin</OutputPath>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
     <Optimize>true</Optimize>

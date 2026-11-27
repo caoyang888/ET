@@ -11,12 +11,13 @@ namespace ET.Server
         [EntitySystem]
         private static void Awake(this RouterComponent self, IPEndPoint outerAddress, string innerIP)
         {
-#if UNITY_WEBGL
-            self.OuterTcp = new WebSocketTransport(outerAddress);
-#else
             self.OuterTcp = new TcpTransport(outerAddress);
             self.OuterUdp = new UdpTransport(outerAddress);
-#endif
+            WebSocketServerConfig webSocketConfig = WebSocketServerConfig.Load();
+            if (webSocketConfig.Enable)
+            {
+                self.OuterWebSocket = new WebSocketTransport(webSocketConfig.Shift(outerAddress), webSocketConfig);
+            }
             
             self.InnerSocket = new UdpTransport(new IPEndPoint(IPAddress.Parse(innerIP), 0));
         }
@@ -26,6 +27,7 @@ namespace ET.Server
         {
             self.OuterUdp?.Dispose();
             self.OuterTcp?.Dispose();
+            self.OuterWebSocket?.Dispose();
             self.InnerSocket.Dispose();
             self.IPEndPoint = null;
         }
@@ -35,10 +37,12 @@ namespace ET.Server
         {
             self.OuterUdp?.Update();
             self.OuterTcp?.Update();
+            self.OuterWebSocket?.Update();
             self.InnerSocket.Update();
             long timeNow = self.GetSingleton<TimeInfo>().ClientNow();
             self.RecvOuterUdp(timeNow);
             self.RecvOuterTcp(timeNow);
+            self.RecvOuterWebSocket(timeNow);
             self.RecvInner(timeNow);
 
             // 每秒钟检查一次
@@ -60,6 +64,22 @@ namespace ET.Server
             return new IPEndPoint(ipEndPoint.Address, ipEndPoint.Port);
         }
         
+        private static void RecvOuterWebSocket(this RouterComponent self, long timeNow)
+        {
+            while (self.OuterWebSocket != null && self.OuterWebSocket.Available())
+            {
+                try
+                {
+                    int messageLength = self.OuterWebSocket.Recv(self.Cache, ref self.IPEndPoint);
+                    self.RecvOuterHandler(messageLength, timeNow, self.OuterWebSocket);
+                }
+                catch (Exception e)
+                {
+                    Log.Error(e);
+                }
+            }
+        }
+
         // 接收tcp消息
         private static void RecvOuterTcp(this RouterComponent self, long timeNow)
         {

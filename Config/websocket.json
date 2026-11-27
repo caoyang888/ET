@@ -1,0 +1,8 @@
+{
+  "Enable": true,
+  "Path": "/ws",
+  "PortOffset": 1000,
+  "UseTls": false,
+  "CertificatePath": "",
+  "CertificatePassword": ""
+}

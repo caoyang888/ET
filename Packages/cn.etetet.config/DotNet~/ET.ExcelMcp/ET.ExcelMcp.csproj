@@ -19,7 +19,8 @@
 
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <OutputPath>$(RepoRoot)Bin</OutputPath>
-    <NoWarn>1701;1702;NU1903</NoWarn>
+    <NoWarn>1701;1702;NU1902;NU1903</NoWarn>
+    <WarningsNotAsErrors>NU1902;NU1903</WarningsNotAsErrors>
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">

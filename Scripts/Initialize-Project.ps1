@@ -246,7 +246,7 @@ function Resolve-InitializationOptions {
     }
 
     if ([string]::IsNullOrWhiteSpace($script:CodeMode)) {
-        $script:CodeMode = 'ClientServer'
+        $script:CodeMode = 'Server'
     }
 }
 
@@ -341,16 +341,12 @@ try {
 
     Assert-Environment
     Invoke-InitializationBuilds
-    Restore-SourceGeneratorMeta
 
     Write-Step '命令行初始化流程已完成'
     Write-Host ''
-    Write-Host '仍需在 Unity/Rider 中确认的人工步骤：'
-    Write-Host '- Unity 版本使用 2022.3.62'
-    Write-Host '- 已安装 DOTween 和 Odin 插件'
-    Write-Host '- 已安装 IL2CPP 模块'
-    Write-Host '- Unity External ScriptEditor 选择 Rider，并勾选 Generate .csproj files for 的前两个选项'
-    Write-Host '- 打开 Packages/ET.StateSync/Scenes/Init 场景后进入 Play'
+    Write-Host '独立服务端：'
+    Write-Host '- dotnet build ET.sln'
+    Write-Host '- dotnet ./Bin/ET.App.dll --Console=1'
 }
 finally {
     Pop-Location

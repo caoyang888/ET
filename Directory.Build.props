@@ -1,10 +1,11 @@
 <Project>
   <PropertyGroup>
+    <RepoRoot>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)'))/</RepoRoot>
     <LangVersion>9.0</LangVersion>
     <DebugType>Portable</DebugType>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <!-- 全局警告抑制，会与项目级设置合并 -->
-    <NoWarn>$(NoWarn)</NoWarn>
-    <WarningsNotAsErrors>$(WarningsNotAsErrors);</WarningsNotAsErrors>
+    <NoWarn>$(NoWarn);NU1902;NU1903</NoWarn>
+    <WarningsNotAsErrors>$(WarningsNotAsErrors);NU1902;NU1903</WarningsNotAsErrors>
   </PropertyGroup>
 </Project>

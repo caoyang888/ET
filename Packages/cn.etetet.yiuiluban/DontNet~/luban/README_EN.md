@@ -40,8 +40,6 @@ Luban standardizes the game configuration development workflow, which can greatl
 
 ## Support and contact
 
-- QQ group: 692890842 (Luban development exchange group)
-- discord: https://discord.gg/dGY4zzGMJ4
 - Email: luban@code-philosophy.com
 
 

@@ -40,8 +40,6 @@ luban标准化了游戏配置开发工作流，可以极大提升策划和程序
 
 ## 支持与联系
 
-- QQ群: 692890842 （Luban开发交流群）
-- discord: <https://discord.gg/dGY4zzGMJ4>
 - 邮箱: <luban@code-philosophy.com>
 
 ## license

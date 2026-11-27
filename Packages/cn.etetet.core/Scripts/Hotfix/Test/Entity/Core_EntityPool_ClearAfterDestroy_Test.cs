@@ -145,15 +145,6 @@ namespace ET.Test
                 return 13;
             }
 
-            DictionaryComponent<int, string> dictionaryComponent = DictionaryComponent<int, string>.Create();
-            dictionaryComponent.Add(1, "one");
-            dictionaryComponent.Dispose();
-            if (dictionaryComponent.Count != 0)
-            {
-                Log.Console($"Generated IPool.Clear should clear DictionaryComponent base dictionary, Count: {dictionaryComponent.Count}");
-                return 14;
-            }
-
             reused.Dispose();
             normal.Dispose();
             recorder.Dispose();

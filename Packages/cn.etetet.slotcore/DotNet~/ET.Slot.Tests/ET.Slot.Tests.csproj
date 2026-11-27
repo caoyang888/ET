@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <LangVersion>9.0</LangVersion>
+    <Nullable>disable</Nullable>
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.14.1" />
+    <PackageReference Include="MSTest.TestAdapter" Version="3.9.3" />
+    <PackageReference Include="MSTest.TestFramework" Version="3.9.3" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="../../Scripts/Model/Share/**/*.cs" Exclude="../../Scripts/Model/Share/ErrorCode.cs;../../Scripts/Model/Share/PackageType.cs;../../Scripts/Model/Share/SceneType.cs;../../Scripts/Model/Share/CoroutineLockType.cs" />
+    <Compile Include="../../Scripts/Model/Test/**/*.cs" />
+    <Compile Include="../../../cn.etetet.slotops/Scripts/Model/Share/**/*.cs" Exclude="../../../cn.etetet.slotops/Scripts/Model/Share/ErrorCode.cs;../../../cn.etetet.slotops/Scripts/Model/Share/PackageType.cs" />
+    <Compile Include="../../../cn.etetet.slotops/Scripts/Model/Test/**/*.cs" />
+  </ItemGroup>
+</Project>

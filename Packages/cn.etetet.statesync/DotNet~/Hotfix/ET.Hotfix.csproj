@@ -87,6 +87,7 @@
         <ProjectReference Include="$(ETRootDir)Packages/cn.etetet.memorypack/DotNet~/ET.MemoryPack.Generator/ET.MemoryPack.Generator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
         <ProjectReference Include="$(ETRootDir)Packages/cn.etetet.sourcegenerator/DotNet~/ET.SourceGenerator/ET.SourceGenerator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
         <ProjectReference Include="..\Model\ET.Model.csproj" />
+        <ProjectReference Include="..\..\..\cn.etetet.slotcore\DotNet~\ET.Slot.Postgres\ET.Slot.Postgres.csproj" />
     </ItemGroup>
     
     <ItemGroup>

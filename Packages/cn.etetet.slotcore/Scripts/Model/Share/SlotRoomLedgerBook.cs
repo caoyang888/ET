@@ -68,6 +68,24 @@ namespace ET
             }
         }
 
+        public void Restore(int roomId, long publicStock, long rankPool, long jackpot, long version)
+        {
+            lock (this.gate)
+            {
+                SlotRoomLedger ledger;
+                if (!this.rooms.TryGetValue(roomId, out ledger))
+                {
+                    ledger = new SlotRoomLedger { RoomId = roomId };
+                    this.rooms[roomId] = ledger;
+                }
+
+                ledger.PublicStock = publicStock;
+                ledger.RankPool = rankPool;
+                ledger.Jackpot = jackpot;
+                ledger.Version = version;
+            }
+        }
+
         public SlotRoomLedger Snapshot(int roomId)
         {
             lock (this.gate)

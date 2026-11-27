@@ -8,13 +8,6 @@ namespace ET.Server
         {
             self.AccountId = accountId;
             self.Spin.PlayerId = accountId;
-            long jade = 0;
-            SlotWorldComponent world = self.Root().GetComponent<SlotWorldComponent>();
-            if (world != null && world.Catalog != null && world.Catalog.Rule != null)
-            {
-                jade = world.Catalog.Rule.NewPlayerJade;
-                self.Spin.Add(world.Catalog.Rule.JadeItemId, jade);
-            }
         }
     }
 }

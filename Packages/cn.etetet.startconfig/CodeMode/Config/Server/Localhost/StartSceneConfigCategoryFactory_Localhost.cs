@@ -25,9 +25,9 @@ public sealed class StartSceneConfigCategoryFactory_Localhost : IConfigFactory
             [ 5 ] = new ET.Server.StartSceneConfig(5, 1, 0, @"Router", @"Router02", 0),
             [ 6 ] = new ET.Server.StartSceneConfig(6, 1, 0, @"Router", @"Router03", 0),
             [ 7 ] = new ET.Server.StartSceneConfig(7, 1, 0, @"Router", @"Router04", 0),
-            [ 8 ] = new ET.Server.StartSceneConfig(8, 1, 0, @"Realm", @"Realm", 0),
-            [ 9 ] = new ET.Server.StartSceneConfig(9, 1, 0, @"Gate", @"Gate1", 0),
-            [ 10 ] = new ET.Server.StartSceneConfig(10, 1, 0, @"Gate", @"Gate2", 0),
+            [ 8 ] = new ET.Server.StartSceneConfig(8, 1, 0, @"Realm", @"Realm", 30101),
+            [ 9 ] = new ET.Server.StartSceneConfig(9, 1, 0, @"Gate", @"Gate1", 30102),
+            [ 10 ] = new ET.Server.StartSceneConfig(10, 1, 0, @"Gate", @"Gate2", 30103),
             [ 11 ] = new ET.Server.StartSceneConfig(11, 1, 0, @"MapManager", @"MapManager", 0),
             [ 12 ] = new ET.Server.StartSceneConfig(12, 1, 0, @"Slot", @"Slot", 0)
         });

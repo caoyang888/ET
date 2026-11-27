@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: slot
+      POSTGRES_PASSWORD: slot
+      POSTGRES_DB: slot
+    ports:
+      - "5432:5432"
+    volumes:
+      - slot_pg:/var/lib/postgresql/data
+      - ./Config/Sql/slot_postgres_schema.sql:/docker-entrypoint-initdb.d/01_slot.sql:ro
+
+volumes:
+  slot_pg:

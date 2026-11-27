@@ -17,6 +17,7 @@ namespace ET.Server
             SlotWorldComponent world = root.AddComponent<SlotWorldComponent>();
             world.Catalog = SlotCatalogLoader.Load(root.Fiber());
             world.Ledgers = new SlotRoomLedgerBook();
+            SlotPersistence.Open(world);
             foreach (SlotRoomDef room in world.Catalog.Rooms.Values)
             {
                 world.Ledgers.GetOrCreate(room.RoomId, room.InitialPublicStock);

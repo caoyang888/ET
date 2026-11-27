@@ -227,3 +227,272 @@ message G2C_SetMaintenance // ISessionResponse
 	int32 Error = 2;
 	string Message = 3;
 }
+
+message SlotTaskProto
+{
+	int32 TaskId = 1;
+	int32 TaskType = 2;
+	int32 Condition = 3;
+	int64 Progress = 4;
+	int64 Target = 5;
+	int32 Claimed = 6;
+}
+
+// ResponseType G2C_ListTasks
+message C2G_ListTasks // ISessionRequest
+{
+	int32 RpcId = 1;
+}
+
+message G2C_ListTasks // ISessionResponse
+{
+	int32 RpcId = 1;
+	int32 Error = 2;
+	string Message = 3;
+	repeated SlotTaskProto Tasks = 4;
+}
+
+// ResponseType G2C_GetJubao
+message C2G_GetJubao // ISessionRequest
+{
+	int32 RpcId = 1;
+}
+
+message G2C_GetJubao // ISessionResponse
+{
+	int32 RpcId = 1;
+	int32 Error = 2;
+	string Message = 3;
+	int32 Level = 4;
+	int64 ReadyUnix = 5;
+	int64 Gold = 6;
+}
+
+// ResponseType G2C_GetDiceBoard
+message C2G_GetDiceBoard // ISessionRequest
+{
+	int32 RpcId = 1;
+}
+
+message G2C_GetDiceBoard // ISessionResponse
+{
+	int32 RpcId = 1;
+	int32 Error = 2;
+	string Message = 3;
+	int32 Cell = 4;
+	int32 Laps = 5;
+	int32 CellCount = 6;
+}
+
+// ResponseType G2C_GetKing
+message C2G_GetKing // ISessionRequest
+{
+	int32 RpcId = 1;
+}
+
+message G2C_GetKing // ISessionResponse
+{
+	int32 RpcId = 1;
+	int32 Error = 2;
+	string Message = 3;
+	int64 Damage = 4;
+}
+
+// ResponseType G2C_GetPiggy
+message C2G_GetPiggy // ISessionRequest
+{
+	int32 RpcId = 1;
+}
+
+message G2C_GetPiggy // ISessionResponse
+{
+	int32 RpcId = 1;
+	int32 Error = 2;
+	string Message = 3;
+	int64 Piggy = 4;
+}
+
+// ResponseType G2C_GetBankruptcy
+message C2G_GetBankruptcy // ISessionRequest
+{
+	int32 RpcId = 1;
+}
+
+message G2C_GetBankruptcy // ISessionResponse
+{
+	int32 RpcId = 1;
+	int32 Error = 2;
+	string Message = 3;
+	int32 Claims = 4;
+	int32 Limit = 5;
+	int64 Gold = 6;
+}
+
+message SlotProductProto
+{
+	int32 ProductId = 1;
+	int32 Category = 2;
+	int64 PriceCents = 3;
+	int32 LimitCount = 4;
+	int32 Bought = 5;
+}
+
+// ResponseType G2C_ListProducts
+message C2G_ListProducts // ISessionRequest
+{
+	int32 RpcId = 1;
+}
+
+message G2C_ListProducts // ISessionResponse
+{
+	int32 RpcId = 1;
+	int32 Error = 2;
+	string Message = 3;
+	repeated SlotProductProto Products = 4;
+}
+
+// ResponseType G2C_GetVipInfo
+message C2G_GetVipInfo // ISessionRequest
+{
+	int32 RpcId = 1;
+}
+
+message G2C_GetVipInfo // ISessionResponse
+{
+	int32 RpcId = 1;
+	int32 Error = 2;
+	string Message = 3;
+	int32 Level = 4;
+	int32 Exp = 5;
+	int32 CanRename = 6;
+	int32 CanIdle = 7;
+}
+
+message SlotOrderProto
+{
+	string OrderId = 1;
+	int32 ProductId = 2;
+	int32 Paid = 3;
+}
+
+// ResponseType G2C_ListOrders
+message C2G_ListOrders // ISessionRequest
+{
+	int32 RpcId = 1;
+}
+
+message G2C_ListOrders // ISessionResponse
+{
+	int32 RpcId = 1;
+	int32 Error = 2;
+	string Message = 3;
+	repeated SlotOrderProto Orders = 4;
+}
+
+message SlotMailProto
+{
+	int64 MailId = 1;
+	string Title = 2;
+	string Body = 3;
+	int32 Read = 4;
+	int32 Claimed = 5;
+	repeated SlotGrantProto Rewards = 6;
+}
+
+// ResponseType G2C_ListMails
+message C2G_ListMails // ISessionRequest
+{
+	int32 RpcId = 1;
+}
+
+message G2C_ListMails // ISessionResponse
+{
+	int32 RpcId = 1;
+	int32 Error = 2;
+	string Message = 3;
+	repeated SlotMailProto Mails = 4;
+}
+
+// ResponseType G2C_ReadMail
+message C2G_ReadMail // ISessionRequest
+{
+	int32 RpcId = 1;
+	int64 MailId = 2;
+}
+
+message G2C_ReadMail // ISessionResponse
+{
+	int32 RpcId = 1;
+	int32 Error = 2;
+	string Message = 3;
+}
+
+// ResponseType G2C_ClaimAllMails
+message C2G_ClaimAllMails // ISessionRequest
+{
+	int32 RpcId = 1;
+}
+
+message G2C_ClaimAllMails // ISessionResponse
+{
+	int32 RpcId = 1;
+	int32 Error = 2;
+	string Message = 3;
+	repeated SlotGrantProto Wallet = 4;
+}
+
+// ResponseType G2C_DeleteMail
+message C2G_DeleteMail // ISessionRequest
+{
+	int32 RpcId = 1;
+	int64 MailId = 2;
+}
+
+message G2C_DeleteMail // ISessionResponse
+{
+	int32 RpcId = 1;
+	int32 Error = 2;
+	string Message = 3;
+}
+
+// ResponseType G2C_DevSendMail
+message C2G_DevSendMail // ISessionRequest
+{
+	int32 RpcId = 1;
+	string Title = 2;
+	string Body = 3;
+	int32 ItemId = 4;
+	int64 Count = 5;
+}
+
+message G2C_DevSendMail // ISessionResponse
+{
+	int32 RpcId = 1;
+	int32 Error = 2;
+	string Message = 3;
+	int64 MailId = 4;
+}
+
+message SlotRankProto
+{
+	int32 Place = 1;
+	int64 PlayerId = 2;
+	string Nickname = 3;
+	int64 Damage = 4;
+	int32 Rival = 5;
+}
+
+// ResponseType G2C_ListRank
+message C2G_ListRank // ISessionRequest
+{
+	int32 RpcId = 1;
+	int32 Period = 2;
+}
+
+message G2C_ListRank // ISessionResponse
+{
+	int32 RpcId = 1;
+	int32 Error = 2;
+	string Message = 3;
+	repeated SlotRankProto Rows = 4;
+}

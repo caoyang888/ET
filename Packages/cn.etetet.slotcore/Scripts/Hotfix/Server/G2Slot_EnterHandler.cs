@@ -22,6 +22,27 @@ namespace ET.Server
                 return;
             }
 
+            if (player.GateInstance != 0 && player.GateInstance != request.GateInstance)
+            {
+                SlotPush.Kick(player, 1, "账号在其他地方登录");
+            }
+
+            player.Account = string.IsNullOrEmpty(request.Account) ? player.Id.ToString() : request.Account;
+            player.GateIp = request.GateIp ?? string.Empty;
+            player.GatePort = request.GatePort;
+            player.GateFiber = request.GateFiber;
+            player.GateInstance = request.GateInstance;
+            SlotWorldComponent slotWorld = scene.GetComponent<SlotWorldComponent>();
+            if (player.Spin.Wallet.Count == 0)
+            {
+                SlotPersistence.LoadOrCreate(slotWorld, player, slotWorld.Catalog.Rule.NewPlayerJade);
+            }
+
+            if (string.IsNullOrEmpty(player.Nickname))
+            {
+                player.Nickname = string.IsNullOrEmpty(request.Nickname) ? player.Account : request.Nickname;
+            }
+
             SlotProtoMap.FillWallet(response.Wallet, player.Spin);
         }
     }

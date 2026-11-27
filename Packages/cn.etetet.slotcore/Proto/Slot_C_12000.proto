@@ -69,3 +69,131 @@ message G2C_Spin // ISessionResponse
 	repeated SlotGrantProto Wallet = 11;
 	repeated SlotGrantProto Grants = 12;
 }
+
+message SlotStakeProto
+{
+	int32 StakeId = 1;
+	int64 BetGold = 2;
+	int32 VipLevel = 3;
+	int64 TotalCost = 4;
+}
+
+// ResponseType G2C_GetProfile
+message C2G_GetProfile // ISessionRequest
+{
+	int32 RpcId = 1;
+}
+
+message G2C_GetProfile // ISessionResponse
+{
+	int32 RpcId = 1;
+	int32 Error = 2;
+	string Message = 3;
+	int64 PlayerId = 4;
+	string Account = 5;
+	string Nickname = 6;
+	string Avatar = 7;
+	int32 VipExp = 8;
+	int32 VipLevel = 9;
+	int32 RealNameVerified = 10;
+	int32 PhoneBound = 11;
+	int32 UnreadMail = 12;
+	int32 ClaimableTask = 13;
+	int32 Maintenance = 14;
+	repeated SlotGrantProto Wallet = 15;
+}
+
+// ResponseType G2C_Rename
+message C2G_Rename // ISessionRequest
+{
+	int32 RpcId = 1;
+	string Nickname = 2;
+}
+
+message G2C_Rename // ISessionResponse
+{
+	int32 RpcId = 1;
+	int32 Error = 2;
+	string Message = 3;
+	string Nickname = 4;
+}
+
+// ResponseType G2C_EnterRoom
+message C2G_EnterRoom // ISessionRequest
+{
+	int32 RpcId = 1;
+	int32 RoomId = 2;
+}
+
+message G2C_EnterRoom // ISessionResponse
+{
+	int32 RpcId = 1;
+	int32 Error = 2;
+	string Message = 3;
+	int32 RoomId = 4;
+	int32 StageId = 5;
+	int64 BossHp = 6;
+	int64 BossHpMax = 7;
+	int32 FreeSpins = 8;
+	int64 PublicStock = 9;
+	int64 RankPool = 10;
+	int64 JackpotPool = 11;
+	repeated SlotStakeProto Stakes = 12;
+}
+
+// ResponseType G2C_GetRoomSnapshot
+message C2G_GetRoomSnapshot // ISessionRequest
+{
+	int32 RpcId = 1;
+	int32 RoomId = 2;
+}
+
+message G2C_GetRoomSnapshot // ISessionResponse
+{
+	int32 RpcId = 1;
+	int32 Error = 2;
+	string Message = 3;
+	int32 RoomId = 4;
+	int32 StageId = 5;
+	int64 BossHp = 6;
+	int64 BossHpMax = 7;
+	int32 FreeSpins = 8;
+	int64 PublicStock = 9;
+	int64 RankPool = 10;
+	int64 JackpotPool = 11;
+	repeated SlotStakeProto Stakes = 12;
+}
+
+message G2C_PushWallet // IMessage
+{
+	repeated SlotGrantProto Wallet = 1;
+}
+
+message G2C_PushProgress // IMessage
+{
+	int32 RoomId = 1;
+	int32 StageId = 2;
+	int64 BossHp = 3;
+	int64 BossHpMax = 4;
+	int32 FreeSpins = 5;
+	int64 TotalDamage = 6;
+}
+
+message G2C_PushMail // IMessage
+{
+	int64 MailId = 1;
+	string Title = 2;
+}
+
+message G2C_PushNotice // IMessage
+{
+	int32 Kind = 1;
+	string Title = 2;
+	string Body = 3;
+}
+
+message G2C_PushKick // IMessage
+{
+	int32 Reason = 1;
+	string Message = 2;
+}

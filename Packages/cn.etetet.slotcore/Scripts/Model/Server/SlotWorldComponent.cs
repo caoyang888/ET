@@ -7,5 +7,6 @@ namespace ET.Server
         public SlotRoomLedgerBook Ledgers = new();
         public SlotSpinStore Spins = new();
         public bool Maintenance;
+        public ET.Slot.Postgres.SlotPostgresDatabase Database;
     }
 }

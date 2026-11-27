@@ -202,6 +202,360 @@ namespace ET
         }
     }
 
+    [MemoryPackable]
+    [Message(Opcode.SlotStakeProto)]
+    public partial class SlotStakeProto : MessageObject
+    {
+        public static SlotStakeProto Create(bool isFromPool = false)
+        {
+            return ObjectPool.Fetch<SlotStakeProto>(isFromPool);
+        }
+
+        [MemoryPackOrder(0)]
+        public int StakeId { get; set; }
+        [MemoryPackOrder(1)]
+        public long BetGold { get; set; }
+        [MemoryPackOrder(2)]
+        public int VipLevel { get; set; }
+        [MemoryPackOrder(3)]
+        public long TotalCost { get; set; }
+        public override void Dispose()
+        {
+            ObjectPool.Recycle(this);
+        }
+    }
+
+    [MemoryPackable]
+    [Message(Opcode.C2G_GetProfile)]
+    [ResponseType(nameof(G2C_GetProfile))]
+    public partial class C2G_GetProfile : MessageObject, ISessionRequest
+    {
+        public static C2G_GetProfile Create(bool isFromPool = false)
+        {
+            return ObjectPool.Fetch<C2G_GetProfile>(isFromPool);
+        }
+
+        [MemoryPackOrder(0)]
+        public int RpcId { get; set; }
+        public override void Dispose()
+        {
+            ObjectPool.Recycle(this);
+        }
+    }
+
+    [MemoryPackable]
+    [Message(Opcode.G2C_GetProfile)]
+    public partial class G2C_GetProfile : MessageObject, ISessionResponse
+    {
+        public static G2C_GetProfile Create(bool isFromPool = false)
+        {
+            return ObjectPool.Fetch<G2C_GetProfile>(isFromPool);
+        }
+
+        [MemoryPackOrder(0)]
+        public int RpcId { get; set; }
+        [MemoryPackOrder(1)]
+        public int Error { get; set; }
+        [MemoryPackOrder(2)]
+        public string Message { get; set; }
+        [MemoryPackOrder(3)]
+        public long PlayerId { get; set; }
+        [MemoryPackOrder(4)]
+        public string Account { get; set; }
+        [MemoryPackOrder(5)]
+        public string Nickname { get; set; }
+        [MemoryPackOrder(6)]
+        public string Avatar { get; set; }
+        [MemoryPackOrder(7)]
+        public int VipExp { get; set; }
+        [MemoryPackOrder(8)]
+        public int VipLevel { get; set; }
+        [MemoryPackOrder(9)]
+        public int RealNameVerified { get; set; }
+        [MemoryPackOrder(10)]
+        public int PhoneBound { get; set; }
+        [MemoryPackOrder(11)]
+        public int UnreadMail { get; set; }
+        [MemoryPackOrder(12)]
+        public int ClaimableTask { get; set; }
+        [MemoryPackOrder(13)]
+        public int Maintenance { get; set; }
+        [MemoryPackOrder(14)]
+        public List<SlotGrantProto> Wallet { get; set; } = new();
+
+        public override void Dispose()
+        {
+            ObjectPool.Recycle(this);
+        }
+    }
+
+    [MemoryPackable]
+    [Message(Opcode.C2G_Rename)]
+    [ResponseType(nameof(G2C_Rename))]
+    public partial class C2G_Rename : MessageObject, ISessionRequest
+    {
+        public static C2G_Rename Create(bool isFromPool = false)
+        {
+            return ObjectPool.Fetch<C2G_Rename>(isFromPool);
+        }
+
+        [MemoryPackOrder(0)]
+        public int RpcId { get; set; }
+        [MemoryPackOrder(1)]
+        public string Nickname { get; set; }
+        public override void Dispose()
+        {
+            ObjectPool.Recycle(this);
+        }
+    }
+
+    [MemoryPackable]
+    [Message(Opcode.G2C_Rename)]
+    public partial class G2C_Rename : MessageObject, ISessionResponse
+    {
+        public static G2C_Rename Create(bool isFromPool = false)
+        {
+            return ObjectPool.Fetch<G2C_Rename>(isFromPool);
+        }
+
+        [MemoryPackOrder(0)]
+        public int RpcId { get; set; }
+        [MemoryPackOrder(1)]
+        public int Error { get; set; }
+        [MemoryPackOrder(2)]
+        public string Message { get; set; }
+        [MemoryPackOrder(3)]
+        public string Nickname { get; set; }
+        public override void Dispose()
+        {
+            ObjectPool.Recycle(this);
+        }
+    }
+
+    [MemoryPackable]
+    [Message(Opcode.C2G_EnterRoom)]
+    [ResponseType(nameof(G2C_EnterRoom))]
+    public partial class C2G_EnterRoom : MessageObject, ISessionRequest
+    {
+        public static C2G_EnterRoom Create(bool isFromPool = false)
+        {
+            return ObjectPool.Fetch<C2G_EnterRoom>(isFromPool);
+        }
+
+        [MemoryPackOrder(0)]
+        public int RpcId { get; set; }
+        [MemoryPackOrder(1)]
+        public int RoomId { get; set; }
+        public override void Dispose()
+        {
+            ObjectPool.Recycle(this);
+        }
+    }
+
+    [MemoryPackable]
+    [Message(Opcode.G2C_EnterRoom)]
+    public partial class G2C_EnterRoom : MessageObject, ISessionResponse
+    {
+        public static G2C_EnterRoom Create(bool isFromPool = false)
+        {
+            return ObjectPool.Fetch<G2C_EnterRoom>(isFromPool);
+        }
+
+        [MemoryPackOrder(0)]
+        public int RpcId { get; set; }
+        [MemoryPackOrder(1)]
+        public int Error { get; set; }
+        [MemoryPackOrder(2)]
+        public string Message { get; set; }
+        [MemoryPackOrder(3)]
+        public int RoomId { get; set; }
+        [MemoryPackOrder(4)]
+        public int StageId { get; set; }
+        [MemoryPackOrder(5)]
+        public long BossHp { get; set; }
+        [MemoryPackOrder(6)]
+        public long BossHpMax { get; set; }
+        [MemoryPackOrder(7)]
+        public int FreeSpins { get; set; }
+        [MemoryPackOrder(8)]
+        public long PublicStock { get; set; }
+        [MemoryPackOrder(9)]
+        public long RankPool { get; set; }
+        [MemoryPackOrder(10)]
+        public long JackpotPool { get; set; }
+        [MemoryPackOrder(11)]
+        public List<SlotStakeProto> Stakes { get; set; } = new();
+
+        public override void Dispose()
+        {
+            ObjectPool.Recycle(this);
+        }
+    }
+
+    [MemoryPackable]
+    [Message(Opcode.C2G_GetRoomSnapshot)]
+    [ResponseType(nameof(G2C_GetRoomSnapshot))]
+    public partial class C2G_GetRoomSnapshot : MessageObject, ISessionRequest
+    {
+        public static C2G_GetRoomSnapshot Create(bool isFromPool = false)
+        {
+            return ObjectPool.Fetch<C2G_GetRoomSnapshot>(isFromPool);
+        }
+
+        [MemoryPackOrder(0)]
+        public int RpcId { get; set; }
+        [MemoryPackOrder(1)]
+        public int RoomId { get; set; }
+        public override void Dispose()
+        {
+            ObjectPool.Recycle(this);
+        }
+    }
+
+    [MemoryPackable]
+    [Message(Opcode.G2C_GetRoomSnapshot)]
+    public partial class G2C_GetRoomSnapshot : MessageObject, ISessionResponse
+    {
+        public static G2C_GetRoomSnapshot Create(bool isFromPool = false)
+        {
+            return ObjectPool.Fetch<G2C_GetRoomSnapshot>(isFromPool);
+        }
+
+        [MemoryPackOrder(0)]
+        public int RpcId { get; set; }
+        [MemoryPackOrder(1)]
+        public int Error { get; set; }
+        [MemoryPackOrder(2)]
+        public string Message { get; set; }
+        [MemoryPackOrder(3)]
+        public int RoomId { get; set; }
+        [MemoryPackOrder(4)]
+        public int StageId { get; set; }
+        [MemoryPackOrder(5)]
+        public long BossHp { get; set; }
+        [MemoryPackOrder(6)]
+        public long BossHpMax { get; set; }
+        [MemoryPackOrder(7)]
+        public int FreeSpins { get; set; }
+        [MemoryPackOrder(8)]
+        public long PublicStock { get; set; }
+        [MemoryPackOrder(9)]
+        public long RankPool { get; set; }
+        [MemoryPackOrder(10)]
+        public long JackpotPool { get; set; }
+        [MemoryPackOrder(11)]
+        public List<SlotStakeProto> Stakes { get; set; } = new();
+
+        public override void Dispose()
+        {
+            ObjectPool.Recycle(this);
+        }
+    }
+
+    [MemoryPackable]
+    [Message(Opcode.G2C_PushWallet)]
+    public partial class G2C_PushWallet : MessageObject, IMessage
+    {
+        public static G2C_PushWallet Create(bool isFromPool = false)
+        {
+            return ObjectPool.Fetch<G2C_PushWallet>(isFromPool);
+        }
+
+        [MemoryPackOrder(0)]
+        public List<SlotGrantProto> Wallet { get; set; } = new();
+
+        public override void Dispose()
+        {
+            ObjectPool.Recycle(this);
+        }
+    }
+
+    [MemoryPackable]
+    [Message(Opcode.G2C_PushProgress)]
+    public partial class G2C_PushProgress : MessageObject, IMessage
+    {
+        public static G2C_PushProgress Create(bool isFromPool = false)
+        {
+            return ObjectPool.Fetch<G2C_PushProgress>(isFromPool);
+        }
+
+        [MemoryPackOrder(0)]
+        public int RoomId { get; set; }
+        [MemoryPackOrder(1)]
+        public int StageId { get; set; }
+        [MemoryPackOrder(2)]
+        public long BossHp { get; set; }
+        [MemoryPackOrder(3)]
+        public long BossHpMax { get; set; }
+        [MemoryPackOrder(4)]
+        public int FreeSpins { get; set; }
+        [MemoryPackOrder(5)]
+        public long TotalDamage { get; set; }
+        public override void Dispose()
+        {
+            ObjectPool.Recycle(this);
+        }
+    }
+
+    [MemoryPackable]
+    [Message(Opcode.G2C_PushMail)]
+    public partial class G2C_PushMail : MessageObject, IMessage
+    {
+        public static G2C_PushMail Create(bool isFromPool = false)
+        {
+            return ObjectPool.Fetch<G2C_PushMail>(isFromPool);
+        }
+
+        [MemoryPackOrder(0)]
+        public long MailId { get; set; }
+        [MemoryPackOrder(1)]
+        public string Title { get; set; }
+        public override void Dispose()
+        {
+            ObjectPool.Recycle(this);
+        }
+    }
+
+    [MemoryPackable]
+    [Message(Opcode.G2C_PushNotice)]
+    public partial class G2C_PushNotice : MessageObject, IMessage
+    {
+        public static G2C_PushNotice Create(bool isFromPool = false)
+        {
+            return ObjectPool.Fetch<G2C_PushNotice>(isFromPool);
+        }
+
+        [MemoryPackOrder(0)]
+        public int Kind { get; set; }
+        [MemoryPackOrder(1)]
+        public string Title { get; set; }
+        [MemoryPackOrder(2)]
+        public string Body { get; set; }
+        public override void Dispose()
+        {
+            ObjectPool.Recycle(this);
+        }
+    }
+
+    [MemoryPackable]
+    [Message(Opcode.G2C_PushKick)]
+    public partial class G2C_PushKick : MessageObject, IMessage
+    {
+        public static G2C_PushKick Create(bool isFromPool = false)
+        {
+            return ObjectPool.Fetch<G2C_PushKick>(isFromPool);
+        }
+
+        [MemoryPackOrder(0)]
+        public int Reason { get; set; }
+        [MemoryPackOrder(1)]
+        public string Message { get; set; }
+        public override void Dispose()
+        {
+            ObjectPool.Recycle(this);
+        }
+    }
+
     public static partial class Opcode
     {
         public const ushort SlotGrantProto = 12001;
@@ -212,5 +566,19 @@ namespace ET
         public const ushort G2C_EnterSlot = 12006;
         public const ushort C2G_Spin = 12007;
         public const ushort G2C_Spin = 12008;
+        public const ushort SlotStakeProto = 12009;
+        public const ushort C2G_GetProfile = 12010;
+        public const ushort G2C_GetProfile = 12011;
+        public const ushort C2G_Rename = 12012;
+        public const ushort G2C_Rename = 12013;
+        public const ushort C2G_EnterRoom = 12014;
+        public const ushort G2C_EnterRoom = 12015;
+        public const ushort C2G_GetRoomSnapshot = 12016;
+        public const ushort G2C_GetRoomSnapshot = 12017;
+        public const ushort G2C_PushWallet = 12018;
+        public const ushort G2C_PushProgress = 12019;
+        public const ushort G2C_PushMail = 12020;
+        public const ushort G2C_PushNotice = 12021;
+        public const ushort G2C_PushKick = 12022;
     }
 }

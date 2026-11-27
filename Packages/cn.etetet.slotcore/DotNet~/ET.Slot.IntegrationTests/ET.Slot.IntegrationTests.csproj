@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <LangVersion>9.0</LangVersion>
+    <Nullable>disable</Nullable>
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <NoWarn>NU1902;NU1903</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.14.1" />
+    <PackageReference Include="MSTest.TestAdapter" Version="3.9.3" />
+    <PackageReference Include="MSTest.TestFramework" Version="3.9.3" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="../ET.Slot.Postgres/ET.Slot.Postgres.csproj" />
+    <ProjectReference Include="../../../cn.etetet.memorypack/DotNet~/ET.MemoryPack/ET.MemoryPack.csproj" />
+    <ProjectReference Include="../../../cn.etetet.statesync/DotNet~/Model/ET.Model.csproj" />
+    <ProjectReference Include="../../../cn.etetet.core/DotNet~/ET.Core.csproj" />
+  </ItemGroup>
+</Project>

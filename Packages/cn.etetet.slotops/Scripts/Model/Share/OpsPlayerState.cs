@@ -7,8 +7,11 @@ namespace ET
     {
         public long MailId;
         public string Title;
+        public string Body = string.Empty;
         public bool Read;
         public bool Claimed;
+        public bool Deleted;
+        public long ExpireUnix;
         public List<SlotItemGrant> Rewards = new List<SlotItemGrant>();
     }
 
@@ -17,6 +20,7 @@ namespace ET
     {
         public string OrderId;
         public int ProductId;
+        public long Amount;
         public bool Paid;
         public bool Granted;
     }

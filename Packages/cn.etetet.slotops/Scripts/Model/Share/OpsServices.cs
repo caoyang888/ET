@@ -70,9 +70,11 @@ namespace ET
 
         public static OpsOrder CreateOrder(OpsCatalog catalog, OpsPlayerState ops, int productId, string orderId)
         {
+            OpsProductDef product = FindProduct(catalog, productId);
             OpsOrder order = new OpsOrder();
             order.OrderId = orderId;
             order.ProductId = productId;
+            order.Amount = product == null ? 0 : product.PriceCents;
             ops.Orders[orderId] = order;
             return order;
         }

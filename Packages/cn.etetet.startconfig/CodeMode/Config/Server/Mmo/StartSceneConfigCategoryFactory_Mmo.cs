@@ -21,7 +21,8 @@ public sealed class StartSceneConfigCategoryFactory_Mmo : IConfigFactory
             [ 1 ] = new ET.Server.StartSceneConfig(1, 1, 1, @"ServiceDiscovery", @"ServiceDiscovery", 0),
             [ 2 ] = new ET.Server.StartSceneConfig(2, 2, 1, @"RouterManager", @"RouterManager", 10101),
             [ 3 ] = new ET.Server.StartSceneConfig(3, 3, 1, @"Router", @"Router01", 0),
-            [ 1003 ] = new ET.Server.StartSceneConfig(1003, 1003, 2, @"Game", @"Game", 0)
+            [ 1003 ] = new ET.Server.StartSceneConfig(1003, 1003, 2, @"Game", @"Game", 0),
+            [ 1004 ] = new ET.Server.StartSceneConfig(1004, 1003, 2, @"Slot", @"Slot", 0)
         });
     }
 }

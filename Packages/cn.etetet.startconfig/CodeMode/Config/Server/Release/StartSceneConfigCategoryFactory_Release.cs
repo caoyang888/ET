@@ -24,7 +24,8 @@ public sealed class StartSceneConfigCategoryFactory_Release : IConfigFactory
             [ 14 ] = new ET.Server.StartSceneConfig(14, 14, 1, @"Realm", @"Realm", 0),
             [ 15 ] = new ET.Server.StartSceneConfig(15, 15, 1, @"Gate", @"Gate", 0),
             [ 25 ] = new ET.Server.StartSceneConfig(25, 25, 1, @"Location", @"Location", 0),
-            [ 26 ] = new ET.Server.StartSceneConfig(26, 26, 1, @"MapManager", @"MapManager", 0)
+            [ 26 ] = new ET.Server.StartSceneConfig(26, 26, 1, @"MapManager", @"MapManager", 0),
+            [ 16 ] = new ET.Server.StartSceneConfig(16, 15, 1, @"Slot", @"Slot", 0)
         });
     }
 }

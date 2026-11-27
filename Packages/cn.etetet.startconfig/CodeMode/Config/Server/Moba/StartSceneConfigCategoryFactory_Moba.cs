@@ -25,7 +25,8 @@ public sealed class StartSceneConfigCategoryFactory_Moba : IConfigFactory
             [ 1004 ] = new ET.Server.StartSceneConfig(1004, 1004, 1, @"Gate", @"Gate", 0),
             [ 2004 ] = new ET.Server.StartSceneConfig(2004, 2004, 1, @"Location", @"Location", 0),
             [ 2005 ] = new ET.Server.StartSceneConfig(2005, 2005, 1, @"Match", @"Match", 0),
-            [ 3005 ] = new ET.Server.StartSceneConfig(3005, 3005, 1, @"MapManager", @"MapManager", 0)
+            [ 3005 ] = new ET.Server.StartSceneConfig(3005, 3005, 1, @"MapManager", @"MapManager", 0),
+            [ 1005 ] = new ET.Server.StartSceneConfig(1005, 1004, 1, @"Slot", @"Slot", 0)
         });
     }
 }
